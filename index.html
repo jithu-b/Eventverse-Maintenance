@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <script>
+      // Compatibility shim for test runners and browser extensions that patch window.fetch
+      (function() {
+        try {
+          var originalFetch = window.fetch;
+          var activeFetch = originalFetch ? function() {
+            return originalFetch.apply(window, arguments);
+          } : undefined;
+
+          Object.defineProperty(window, 'fetch', {
+            get: function() {
+              return activeFetch;
+            },
+            set: function(newFetch) {
+              activeFetch = newFetch;
+            },
+            configurable: true,
+            enumerable: true
+          });
+        } catch (e) {
+          try {
+            var proto = window.Window ? window.Window.prototype : Object.getPrototypeOf(window);
+            if (proto) {
+              var orig = proto.fetch || window.fetch;
+              var cur = orig ? function() { return orig.apply(window, arguments); } : undefined;
+              Object.defineProperty(proto, 'fetch', {
+                get: function() { return cur; },
+                set: function(fn) { cur = fn; },
+                configurable: true,
+                enumerable: true
+              });
+            }
+          } catch (err) {}
+        }
+      })();
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EventVerse — System Maintenance | TinkerHub SBCE</title>
+    <meta name="description" content="EventVerse is undergoing scheduled system maintenance. We're working to restore full access shortly." />
+    <meta property="og:title" content="EventVerse — System Maintenance | TinkerHub SBCE" />
+    <meta property="og:description" content="EventVerse is undergoing scheduled system maintenance. We're working to restore full access shortly." />
+    <meta property="og:type" content="website" />
+    <meta name="theme-color" content="#080808" />
+    <meta name="twitter:card" content="summary_large_image" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+

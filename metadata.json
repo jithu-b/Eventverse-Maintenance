@@ -1,0 +1,6 @@
+{
+  "name": "EventVerse - Maintenance Mode",
+  "description": "EventVerse event management platform for TinkerHub SBCE, temporarily in system maintenance mode.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
