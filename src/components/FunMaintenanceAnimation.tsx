@@ -15,7 +15,7 @@ export const FunMaintenanceAnimation: React.FC = () => {
   const [isWrenchActive, setIsWrenchActive] = useState(false);
 
   const funPhrases = [
-    '🔧 Tightening bolts!',
+    '🔧 Machu Under Work!',
     '⚡ Charging servers!',
     '🚀 Boosting speed!',
     '✨ Polishing pixels!',
